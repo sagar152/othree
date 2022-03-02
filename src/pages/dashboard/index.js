@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
-import Flatpickr from 'react-flatpickr'
+// import Flatpickr from 'react-flatpickr'
 import { ChevronDown, Mail, Printer, File, Users, Image, ShoppingBag } from 'react-feather';
 
 import { getLoggedInUser } from '../../helpers/authUtils';
@@ -46,9 +46,9 @@ class Dashboard extends Component {
                         <Col sm={8} xl={6}>
                             <form className="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div className="form-group mb-sm-0 mr-2">
-                                    <Flatpickr value={this.state.filterDate}
+                                    {/* <Flatpickr value={this.state.filterDate}
                                         onChange={date => { this.setState({ filterDate: date }) }} options={{ mode: "range" }}
-                                        className="form-control" />
+                                        className="form-control" /> */}
                                 </div>
                                 <UncontrolledButtonDropdown>
                                     <DropdownToggle color="primary" className="dropdown-toggle">

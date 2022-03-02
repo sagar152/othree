@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Card, CardBody, UncontrolledDropdown, DropdownMenu, DropdownItem, DropdownToggle, Media, Button } from 'reactstrap';
-import Flatpickr from 'react-flatpickr'
+// import Flatpickr from 'react-flatpickr'
 import { Tag, Clock, Package, Briefcase } from 'react-feather';
 
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -81,7 +81,7 @@ const Events = () => {
 
             <Row className="calendar-widget">
                 <Col sm={6}>
-                    <Flatpickr options={{ inline: true, shorthandCurrentMonth: true }} />
+                    {/* <Flatpickr options={{ inline: true, shorthandCurrentMonth: true }} /> */}
                 </Col>
                 <Col sm={6}>
                     <ul className="list-unstyled ml-sm-3 pl-sm-5 mt-4 mt-sm-0">
