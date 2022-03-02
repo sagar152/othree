@@ -10,6 +10,7 @@ import { EditOutlined, DeleteOutlined, PlusOutlined, DownloadOutlined, FilterOut
 // import { Button } from 'antd';
 // import { MDBCol } from "mdbreact";
 import "./company.css";
+import { Link } from 'react-router-dom';
 
 
 // import PageTitle from '../../components/PageTitle';
@@ -234,6 +235,10 @@ const CustomToggleList = ({
 );
 
 const TableWithColumnToggle = () => {
+    // const history = useHistory();
+    // const onAddcompany=()=>{
+    //     history.push('/tables/basic')
+    // }
 
     return (
         <Card>
@@ -251,8 +256,8 @@ const TableWithColumnToggle = () => {
                             <Row>
                                 <Col md={12}>
                                     <div className='d-flex float-right'>
-                                        <Button className='btn btn-conpany bg-white text-dark pt-2'>Add Company<PlusOutlined className='p-2' /></Button>
-                                        <Button className='btn btn-company mx-3 bg-white text-dark'>Export CSV<DownloadOutlined className='p-2' /></Button>
+                                        <Button className='btn-conpany text-white text-center'><Link to='/tables/basic' className='text-white'>Add Company <PlusOutlined className='p-2' /></Link></Button>
+                                        <Button className='btn btn-company mx-3 bg-white text-dark text-center'>Export CSV<DownloadOutlined className='p-2' /></Button>
                                         <CustomToggleList {...props.columnToggleProps} />
                                     </div>
                                 </Col>

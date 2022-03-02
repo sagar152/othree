@@ -74,8 +74,9 @@
             &.mm-active{
                 >a{
                     border-left: 3px solid $menu-item-active;
-                    color: $menu-item-active;
-                    background-color: $menu-item-bg-hover;
+                    // color: $menu-item-active;
+                    color: #fff;
+                    // background-color: $menu-item-bg-hover;
                     svg {
                         color: $menu-item-active;
                         fill: rgba($menu-item-active, 0.10);
@@ -105,9 +106,10 @@
                 &:hover,
                 &:focus,
                 &:active {
-                    color: $menu-item-hover;
+                    // color: $menu-item-hover;
+                    color: #fff;
                     text-decoration: none;
-                    background-color: $menu-item-bg-hover;
+                    // background-color: $menu-item-bg-hover;
                     
                     svg {
                         color: $menu-item-active;
@@ -129,8 +131,9 @@
 
                 &.active {
                     border-left: 3px solid $menu-item-active;
-                    color: $menu-item-active;
-                    background-color: $menu-item-bg-hover;
+                    // color: $menu-item-active;
+                    color: #fff;
+                    // background-color: $menu-item-bg-hover;
 
                     svg {
                         color: $menu-item-active;
@@ -497,7 +500,8 @@
     .metismenu {
         li {
             a[aria-expanded=true]{
-                color: $menu-item-active-color-dark !important;
+                // color: $menu-item-active-color-dark !important;
+                color: #fff !important;
             }
         }
     }

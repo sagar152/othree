@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom'
 
-import { Container, Row, Col, Card, CardBody, Label, FormGroup, Button, Alert, InputGroup, InputGroupAddon } from 'reactstrap';
+import { Row, Col, Card, CardBody, Label, FormGroup, Button, Alert, InputGroup, InputGroupAddon } from 'reactstrap';
 import { AvForm, AvGroup, AvInput, AvFeedback } from 'availity-reactstrap-validation';
 import { Mail, Lock } from 'react-feather';
 
 import { loginUser } from '../../redux/actions';
 import { isUserAuthenticated } from '../../helpers/authUtils';
 import Loader from '../../components/Loader';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/O3i_LOGO_V8_FINAL_800-X-800 3.png';
+import sideimage from '../../assets/images/Mobile login-pana 1.png';
 
 class Login extends Component {
     _isMounted = false;
@@ -61,26 +62,40 @@ class Login extends Component {
 
                 {this.renderRedirectToRoot()}
 
-                {(this._isMounted || !isAuthTokenValid) && <div className="account-pages my-5">
-                    <Container>
+                {(this._isMounted || !isAuthTokenValid) && <div className="account-pages overflow-hidden">
+                    
                         <Row className="justify-content-center">
-                            <Col xl={10}>
-                                <Card className="">
+                            <Col sm={12} md={12} xl={12}>
+                                <Card className="vh-100 m-0">
                                     <CardBody className="p-0">
                                         <Row>
+                                            <Col md={6} className="d-none d-md-inline-block">
+                                              
+                                                <div className="auth-page-sidebar">
+                                                <h3 className='font-weight-bold text-white pt-5 text-center mt-0'>Login Account</h3>
+                                                <p className="text-white text-center mb-5">Login to find your space.</p>
+                                                    {/* <div className="auth-user-testimonial">
+                                                        <p className="font-size-24 font-weight-bold text-white mb-1">I simply love it!</p>
+                                                        <p className="lead">"It's a elegent templete. I love it very much!"</p>
+                                                        <p>- Admin User</p>
+                                                    </div> */}
+                                                    <div className="text-center">
+                                                        <img src={sideimage} alt="" height="500" />
+                                                        </div>
+                                                </div>
+                                            </Col>
                                             <Col md={6} className="p-5 position-relative">
-                                                { /* preloader */}
                                                 {this.props.loading && <Loader />}
 
-                                                <div className="mx-auto mb-5">
+                                                <div className="mx-auto mb-3 text-center">
                                                     <a href="/">
-                                                        <img src={logo} alt="" height="24" />
-                                                        <h3 className="d-inline align-middle ml-1 text-logo">Shreyu</h3>
+                                                        <img src={logo} alt="" height="80" />
+                                                        {/* <h3 className="d-inline align-middle ml-1 text-logo">Shreyu</h3> */}
                                                     </a>
                                                 </div>
 
-                                                <h6 className="h5 mb-0 mt-4">Welcome back!</h6>
-                                                <p className="text-muted mt-1 mb-4">Enter your email address and password to access admin panel.</p>
+                                                <h6 className=" font-weight-bold h5 mb-0 mt-4 text-center">Login</h6>
+                                                {/* <p className="text-muted mt-1 mb-4">Enter your email address and password to access admin panel.</p> */}
 
 
                                                 {this.props.error && <Alert color="danger" isOpen={this.props.error ? true : false}>
@@ -89,14 +104,14 @@ class Login extends Component {
 
                                                 <AvForm onValidSubmit={this.handleValidSubmit} className="authentication-form">
                                                     <AvGroup className="">
-                                                        <Label for="username">Username</Label>
+                                                        <Label for="username" className='font-weight-bold'>Email Id*</Label>
                                                         <InputGroup>
                                                             <InputGroupAddon addonType="prepend">
                                                                 <span className="input-group-text">
                                                                     <Mail className="icon-dual" />
                                                                 </span>
                                                             </InputGroupAddon>
-                                                            <AvInput type="text" name="username" id="username" placeholder="hello@coderthemes.com" value={this.state.username} required />
+                                                            <AvInput type="text" name="username" id="username" value={this.state.username} required style={{backgroundColor:"#F4F4F4"}} />
                                                         </InputGroup>
                                                         
                                                         <AvFeedback>This field is invalid</AvFeedback>
@@ -104,53 +119,43 @@ class Login extends Component {
 
 
                                                     <AvGroup className="mb-3">
-                                                        <Label for="password">Password</Label>
-                                                        <Link to="/account/forget-password" className="float-right text-muted text-unline-dashed ml-1">Forgot your password?</Link>
-                                                        <InputGroup>
+                                                        <Label for="password" className='font-weight-bold'>Password*</Label>
+                                                        
+                                                        <InputGroup className='mb-3'>
                                                             <InputGroupAddon addonType="prepend">
                                                                 <span className="input-group-text">
                                                                     <Lock className="icon-dual" />
                                                                 </span>
                                                             </InputGroupAddon>
-                                                            <AvInput type="password" name="password" id="password" placeholder="Enter your password" value={this.state.password} required />
+                                                            <AvInput type="password" name="password" id="password" value={this.state.password} required style={{backgroundColor:"#F4F4F4"}} />
                                                         </InputGroup>
                                                         <AvFeedback>This field is invalid</AvFeedback>
+                                                        <Link to="/account/forget-password" className="ml-1 font-weight-bold">Forgot your password?</Link>
                                                     </AvGroup>
 
-                                                    <FormGroup className="form-group mb-0 text-center">
-                                                        <Button color="primary" className="btn-block">Log In</Button>
+                                                    <FormGroup className="form-group mt-5 pt-3 mb-0 text-center">
+                                                        <Button className="font-size-22 btn-block" style={{backgroundColor:'#08467F'}}>Login</Button>
                                                     </FormGroup>
 
-                                                    <p className="mt-3"><strong>Username:</strong> test &nbsp;&nbsp; <strong>Password:</strong> test</p>
+                                                    {/* <p className="mt-3"><strong>Username:</strong> test &nbsp;&nbsp; <strong>Password:</strong> test</p> */}
                                                 </AvForm>
                                             </Col>
 
-                                            <Col md={6} className="d-none d-md-inline-block">
-                                                <div className="auth-page-sidebar">
-                                                    <div className="overlay"></div>
-                                                    <div className="auth-user-testimonial">
-                                                        <p className="font-size-24 font-weight-bold text-white mb-1">I simply love it!</p>
-                                                        <p className="lead">"It's a elegent templete. I love it very much!"</p>
-                                                        <p>- Admin User</p>
-                                                    </div>
-                                                </div>
-                                            </Col>
+                                            
                                         </Row>
-
-                                        
                                     </CardBody>
                                 </Card>
                             </Col>
                         </Row>
-
-                        <Row className="mt-3">
-                            <Col className="col-12 text-center">
-                                <p className="text-muted">Don't have an account? <Link to="/account/register" className="text-primary font-weight-bold ml-1">Sign Up</Link></p>
-                            </Col>
-                        </Row>
-
-                    </Container>
                 </div>}
+                {/* <Row>
+                    <Col  md={6}>
+                    <Card className='vh-100'>hnjh</Card>
+                    </Col>
+                    <Col  md={6}>
+                    <Card>hmjh</Card>
+                    </Col>
+                </Row> */}
             </React.Fragment>
         )
     }

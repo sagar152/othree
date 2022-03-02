@@ -99,8 +99,8 @@ const DatePickers = () => {
                 <Row>
                     <Col lg={6}>
                         <div className="form-group">
-                            {/* <label>Selecting multiple dates</label> <br />
-                            <Flatpickr value={new Date()} options={{mode: "multiple", dateFormat: "Y-m-d"}}
+                            <label>Selecting multiple dates</label> <br />
+                            {/* <Flatpickr value={new Date()} options={{mode: "multiple", dateFormat: "Y-m-d"}}
                                 onChange={date => { console.log(date) }}
                                 className="form-control" /> */}
                         </div>
@@ -126,8 +126,8 @@ const DatePickers = () => {
                     </Col>
                     <Col lg={6}>
                         <div className="form-group">
-                            <label>24-hour Time Picker</label> <br />
-                            {/* <Flatpickr value={new Date()}  options={{enableTime: true, noCalendar: true, dateFormat: "H:i",  time_24hr: true}}
+                            {/* <label>24-hour Time Picker</label> <br />
+                            <Flatpickr value={new Date()}  options={{enableTime: true, noCalendar: true, dateFormat: "H:i",  time_24hr: true}}
                                     onChange={date => { console.log(date) }}
                                     className="form-control" /> */}
                         </div>

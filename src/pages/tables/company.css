@@ -1,0 +1,20 @@
+.corporate{
+    background-color: #FAFAFA;
+}
+.btn-conpany{
+    background: linear-gradient(90deg, #064A99,#01A3C5) !important;
+}
+.select-background{
+background-color: #EEEEEE;
+}
+.label-text{
+    font-size: 12px;
+    padding-right: 7px;
+}
+.col-size{
+    flex: 0% !important;
+    max-width: 18.66667% !important;
+}
+.text-name{
+    text-align: center;
+}

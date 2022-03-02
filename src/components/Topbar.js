@@ -15,6 +15,7 @@ import './Menubar.css';
 import { UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reactstrap';
 import * as FeatherIcon from 'react-feather';
 import profile from '../assets/images/115-1150152_default-profile-picture-avatar-png-green.png';
+import { KeyOutlined, GlobalOutlined, QuestionCircleOutlined, DownSquareOutlined } from '@ant-design/icons';
 
 
 const Notifications = [{
@@ -154,7 +155,7 @@ class Topbar extends Component {
               </li>
 
               <li className="notification-list d-flex">
-                <button className="btn btn-link nav-link right-bar-toggle">
+                <button tag="button" className="btn btn-link nav-link right-bar-toggle">
                   <Settings />
                   </button>
                   <UncontrolledDropdown className="align-self-center profile-dropdown-menu position-absolute">
@@ -167,20 +168,25 @@ class Topbar extends Component {
                 <DropdownMenu right className="topbar-dropdown-menu profile-dropdown-items">
                     <Link to="/" className="dropdown-item notify-item">
                         <FeatherIcon.User className="icon-dual icon-xs mr-2" />
-                        <span>My Account</span>
+                        <span>Profile</span>
                     </Link>
                     <Link to="/" className="dropdown-item notify-item">
-                        <FeatherIcon.Settings className="icon-dual icon-xs mr-2" />
-                        <span>Settings</span>
+                        <KeyOutlined className="icon-dual icon-xs mr-2" />
+                        <span>Change Password</span>
                     </Link>
                     <Link to="/" className="dropdown-item notify-item">
-                        <FeatherIcon.HelpCircle className="icon-dual icon-xs mr-2" />
-                        <span>Support</span>
+                        <DownSquareOutlined className="icon-dual icon-xs mr-2" />
+                        <span>Theme</span>
                     </Link>
                     <Link to="/" className="dropdown-item notify-item">
-                        <FeatherIcon.Lock className="icon-dual icon-xs mr-2" />
-                        <span>Lock Screen</span>
+                        <GlobalOutlined  className="icon-dual icon-xs mr-2" />
+                        <span>Language</span>
                     </Link>
+                    <Link to="/pages/starter" className="dropdown-item notify-item">
+                        <QuestionCircleOutlined  className="icon-dual icon-xs mr-2" />
+                        <span>Help & Support</span>
+                    </Link>
+                    
                     <DropdownItem divider />
                     <Link to="/account/logout" className="dropdown-item notify-item">
                         <FeatherIcon.LogOut className="icon-dual icon-xs mr-2" />

@@ -51,7 +51,7 @@ const TaskBoard = React.lazy(() => import('../pages/apps/Tasks/Board'));
 
 // tables
 const BasicTables = React.lazy(() => import('../pages/tables/Basic'));
-const AdvancedTables = React.lazy(() => import('../pages/tables/Advanced'));
+// const AdvancedTables = React.lazy(() => import('../pages/tables/Advanced'));
 // const ListOfCompany = React.lazy(() => import('../pages/tables/ListofCompany'));
 const ListOfCompany = React.lazy(() => import('../pages/tables/ListOfCompany'))
 
@@ -121,16 +121,16 @@ const tableRoutes = {
     children: [
         {
             path: '/tables/basic',
-            name: 'Basic',
+            name: 'Add Company',
             component: BasicTables,
             route: PrivateRoute,
         },
-        {
-            path: '/tables/advanced',
-            name: 'Advanced',
-            component: AdvancedTables,
-            route: PrivateRoute,
-        },
+        // {
+        //     path: '/tables/advanced',
+        //     name: 'Advanced',
+        //     component: AdvancedTables,
+        //     route: PrivateRoute,
+        // },
         {
             path: '/tables/listofcompany',
             name: 'List of Company',
@@ -212,6 +212,8 @@ const taskAppRoutes = {
         },
     ],
 };
+
+
 
 const appRoutes = [ tableRoutes, emailAppRoutes, projectAppRoutes, taskAppRoutes];
 

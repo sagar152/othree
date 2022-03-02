@@ -9,7 +9,8 @@
 
         a {
             &[aria-expanded="true"] {
-                color: $menu-item-active !important;
+                // color: $menu-item-active !important;
+                color: #fff;
             }
         }
     }

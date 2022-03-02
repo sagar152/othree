@@ -1,323 +1,323 @@
-import React from 'react';
-import { Row, Col, Card, CardBody, Table } from 'reactstrap';
+import React, { useState } from 'react';
+import { Row, Col, Card, CardBody, Form, Label, Input, FormGroup, Button, InputGroup, InputGroupAddon } from 'reactstrap';
+import addImage from '../../assets/images/corporate-company-logo-design-template-2402e0689677112e3b2b6e0f399d7dc3_screen 1.png';
+import "./company.css";
+import { PlusCircleOutlined, MinusCircleOutlined } from '@ant-design/icons';
+// import { AvInput } from 'availity-reactstrap-validation';
+// import { Mail } from 'react-feather';
 
-import PageTitle from '../../components/PageTitle';
+const AddCompany = () => {
 
-const records = [
-    { id: 1, firstName: 'Greeva', lastName: 'N', username: '@greeva' },
-    { id: 2, firstName: 'Dhyani', lastName: 'B', username: '@dhyani' },
-    { id: 3, firstName: 'Manu', lastName: 'B', username: '@mannat' },
-    { id: 4, firstName: 'Nik', lastName: 'N', username: '@nikn' },
-    { id: 5, firstName: 'Shreyu', lastName: 'Navadiya', username: '@sn' },
-];
+    let [num, setNum] = useState(0);
 
+    let incNum = () => {
+        if (num < 10) {
+            setNum(Number(num) + 1);
+        }
+    };
+    let decNum = () => {
+        if (num > 0) {
+            setNum(num - 1);
+        }
+    }
+    let handleChange = (e) => {
+        setNum(e.target.value);
+    }
 
-const BasicTable = () => {
-    return (
-        <Card>
-            <CardBody>
-                <h4 className="header-title mt-0 mb-1">Basic example</h4>
-                <p className="sub-header">
-                    Just use <code>Table</code> element
-                </p>
-
-                <Table className="mb-0">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {records.map((record, index) => {
-                            return (
-                                <tr key={index}>
-                                    <th scope="row">{record.id}</th>
-                                    <td>{record.firstName}</td>
-                                    <td>{record.lastName}</td>
-                                    <td>{record.username}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </Table>
-            </CardBody>
-        </Card>
-    );
-};
-
-
-const InverseTable = () => {
-    return (
-        <Card>
-            <CardBody>
-                <h4 className="header-title mt-0 mb-1">Inverse Table</h4>
-                <p className="sub-header">
-                    You can also invert the colors—with light text on dark backgrounds—by specifying <code>dark</code>{' '}
-                    attribute
-                </p>
-
-                <Table className="mb-0" dark>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {records.map((record, index) => {
-                            return (
-                                <tr key={index}>
-                                    <th scope="row">{record.id}</th>
-                                    <td>{record.firstName}</td>
-                                    <td>{record.lastName}</td>
-                                    <td>{record.username}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </Table>
-            </CardBody>
-        </Card>
-    );
-};
-
-const StripedRowsTable = () => {
-    return (
-        <Card>
-            <CardBody>
-                <h4 className="header-title mt-0 mb-1">Striped Rows</h4>
-                <p className="sub-header">
-                    Add <code>striped</code> attribute to table
-                </p>
-
-                <Table className="mb-0" striped>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {records.map((record, index) => {
-                            return (
-                                <tr key={index}>
-                                    <th scope="row">{record.id}</th>
-                                    <td>{record.firstName}</td>
-                                    <td>{record.lastName}</td>
-                                    <td>{record.username}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </Table>
-            </CardBody>
-        </Card>
-    );
-};
-
-const BorderedTable = () => {
-    return (
-        <Card>
-            <CardBody>
-                <h4 className="header-title mt-0 mb-1">Bordered table</h4>
-                <p className="sub-header">
-                    Add <code>bordered</code> attribute for borders on all sides of the table and cells.
-                </p>
-
-                <Table className="mb-0" bordered>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {records.map((record, index) => {
-                            return (
-                                <tr key={index}>
-                                    <th scope="row">{record.id}</th>
-                                    <td>{record.firstName}</td>
-                                    <td>{record.lastName}</td>
-                                    <td>{record.username}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </Table>
-            </CardBody>
-        </Card>
-    );
-};
-
-const HoverableTable = () => {
-    return (
-        <Card>
-            <CardBody>
-                <h4 className="header-title mt-0 mb-1">Hoverable Rows</h4>
-                <p className="sub-header">
-                    Add <code>hover</code> attribute to enable a hover state on table rows
-                </p>
-
-                <Table className="mb-0" hover>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {records.map((record, index) => {
-                            return (
-                                <tr key={index}>
-                                    <th scope="row">{record.id}</th>
-                                    <td>{record.firstName}</td>
-                                    <td>{record.lastName}</td>
-                                    <td>{record.username}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </Table>
-            </CardBody>
-        </Card>
-    );
-};
-
-const SmallTable = () => {
-    return (
-        <Card>
-            <CardBody>
-                <h4 className="header-title mt-0 mb-1">Small table</h4>
-                <p className="sub-header">
-                    Add <code>size="sm"</code> attribute to make tables more compact by cutting cell padding in half
-                </p>
-
-                <Table className="mb-0" size="sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {records.map((record, index) => {
-                            return (
-                                <tr key={index}>
-                                    <th scope="row">{record.id}</th>
-                                    <td>{record.firstName}</td>
-                                    <td>{record.lastName}</td>
-                                    <td>{record.username}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </Table>
-            </CardBody>
-        </Card>
-    );
-};
-
-const ResponsiveTable = () => {
-    return (
-        <Card>
-            <CardBody>
-                <h4 className="header-title mt-0 mb-1">Responsive Table</h4>
-                <p className="sub-header">
-                    Across every breakpoint, use <code>responsive</code> attribute to create responsive tables
-                </p>
-
-                <Table className="mb-0" responsive>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {records.map((record, index) => {
-                            return (
-                                <tr key={index}>
-                                    <th scope="row">{record.id}</th>
-                                    <td>{record.firstName}</td>
-                                    <td>{record.lastName}</td>
-                                    <td>{record.username}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </Table>
-            </CardBody>
-        </Card>
-    );
-};
-
-const Tables = () => {
     return (
         <React.Fragment>
-            <Row className="page-title">
-                <Col md={12}>
-                    <PageTitle
-                        breadCrumbItems={[
-                            { label: 'Tables', path: '/tables/basic' },
-                            { label: 'Basic Tables', path: '/tables/basic', active: true },
-                        ]}
-                        title={'Basic Tables'}
-                    />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col xl={6}>
-                    <BasicTable />
-                </Col>
-
-                <Col xl={6}>
-                    <InverseTable />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col xl={6}>
-                    <StripedRowsTable />
-                </Col>
-
-                <Col xl={6}>
-                    <BorderedTable />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col xl={6}>
-                    <HoverableTable />
-                </Col>
-
-                <Col xl={6}>
-                    <SmallTable />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col>
-                    <ResponsiveTable />
-                </Col>
-            </Row>
+            <Card className='mt-4'>
+                <CardBody>
+                    <Row className='my-3 mx-1 px-2 pt-3 corporate'>
+                        <Col sm={6} md={4} >
+                            <div className='text-center border-right border-dark'>
+                                <img src={addImage} alt="" height="250" />
+                            </div>
+                        </Col>
+                        <Col sm={6} md={8}>
+                            <Form>
+                                <FormGroup row>
+                                    <Label for="exampleEmail" sm={2}>Campus</Label>
+                                    <Col sm={10}>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="Number of Campus" />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="exampleEmail" sm={2}>Building</Label>
+                                    <Col sm={10}>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="Number of Building" />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="exampleEmail" sm={2}>Wings</Label>
+                                    <Col sm={10}>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="Number of Wings" />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="exampleEmail" sm={2}>Floor</Label>
+                                    <Col sm={10}>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="Number of Floor" />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label for="exampleEmail" sm={2}>Room</Label>
+                                    <Col sm={10}>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="Number of Room" />
+                                    </Col>
+                                </FormGroup>
+                            </Form>
+                        </Col>
+                    </Row>
+                    <Row className='p-2'>
+                        <Col md={4}>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="exampleSelect" className='font-weight-bold'>Time Zone</Label>
+                                    <Input type="select" name="select" id="exampleSelect" className='select-background'>
+                                        <option>select</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Input>
+                                </FormGroup>
+                            </Form>
+                        </Col>
+                        <Col md={4}>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="exampleSelect" className='font-weight-bold'>Currency</Label>
+                                    <Input type="select" name="select" id="exampleSelect" className='select-background'>
+                                        <option>select</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Input>
+                                </FormGroup>
+                            </Form>
+                        </Col>
+                        <Col md={4}>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="exampleSelect" className='font-weight-bold'>Holiday Calendar</Label>
+                                    <Input type="select" name="select" id="exampleSelect" className='select-background'>
+                                        <option>select</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Input>
+                                </FormGroup>
+                            </Form>
+                        </Col>
+                    </Row>
+                    <Row className='p-2'>
+                        <Col md={3}>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="exampleSelect" className='font-weight-bold'>Weather Feed Location</Label>
+                                    <Input type="select" name="select" id="exampleSelect">
+                                        <option>select</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Input>
+                                </FormGroup>
+                            </Form>
+                        </Col>
+                        <Col md={3}>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="exampleSelect" className='font-weight-bold'>Size in Sqft</Label>
+                                    <Input type="select" name="select" id="exampleSelect">
+                                        <option>select</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Input>
+                                </FormGroup>
+                            </Form>
+                        </Col>
+                        <Col md={3}>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="exampleSelect" className='font-weight-bold'>Occupancy of People</Label>
+                                    <Input type="select" name="select" id="exampleSelect">
+                                        <option>select</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Input>
+                                </FormGroup>
+                            </Form>
+                        </Col>
+                        <Col md={3}>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="exampleSelect" className='font-weight-bold'>Green certifications</Label>
+                                    <Input type="select" name="select" id="exampleSelect">
+                                        <option>select</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Input>
+                                </FormGroup>
+                            </Form>
+                        </Col>
+                    </Row>
+                    <div className='select-background p-2 shadow-sm rounded'>
+                        <h6 className='pb-3 pt-2 font-weight-bold'>Billing/Main Office Space </h6>
+                        <Row>
+                            <Col md={8}>
+                                <Form>
+                                    <FormGroup className='align-items-center'>
+                                        <Label for="exampleEmail" className='font-weight-bold'>Address*</Label>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder=" Zenith Technology, near red cross" />
+                                    </FormGroup>
+                                </Form>
+                            </Col>
+                            <Col md={4}>
+                                <Form>
+                                    <FormGroup className='align-items-center'>
+                                        <Label for="exampleEmail" className='font-weight-bold'>Campus</Label>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="Electronic Complex" />
+                                    </FormGroup>
+                                </Form>
+                            </Col>
+                            <Col md={3}>
+                                <Form>
+                                    <FormGroup className='align-items-center'>
+                                        <Label for="exampleEmail" className='font-weight-bold'>Building</Label>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="Emaster" />
+                                    </FormGroup>
+                                </Form>
+                            </Col>
+                            <Col md={3}>
+                                <Form>
+                                    <FormGroup className='align-items-center'>
+                                        <Label for="exampleEmail" className='font-weight-bold'>Floors</Label>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="1st" />
+                                    </FormGroup>
+                                </Form>
+                            </Col>
+                            <Col md={3}>
+                                <Form>
+                                    <FormGroup className='align-items-center'>
+                                        <Label for="exampleEmail" className='font-weight-bold'>Wings(Zone)</Label>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="East" />
+                                    </FormGroup>
+                                </Form>
+                            </Col>
+                            <Col md={3}>
+                                <Form>
+                                    <FormGroup className='align-items-center'>
+                                        <Label for="exampleEmail" className='font-weight-bold'>Rooms</Label>
+                                        <Input type="email" name="email" id="exampleEmail" placeholder="101" />
+                                    </FormGroup>
+                                </Form>
+                            </Col>
+                        </Row>
+                    </div>
+                    <div className='corporate pl-5 mt-3 py-3'>
+                        <h6 className='font-weight-bold'>Space Detail informantion</h6>
+                        <p>Number of space with specification</p>
+                        <Row>
+                            <Col md={2} className="d-flex align-items-center pr-0 pl-0 col-size">
+                                <Label for="exampleEmail" className="label-text">Campus </Label>
+                                <InputGroup>
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <MinusCircleOutlined onClick={decNum} className="bg-white" />
+                                        </span>
+                                    </InputGroupAddon>
+                                    <input type="text" class="form-control text-center" value={num} onChange={handleChange} />
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <PlusCircleOutlined onClick={incNum}  />
+                                        </span>
+                                    </InputGroupAddon>
+                                </InputGroup>
+                            </Col>
+                            <Col md={2} className="d-flex align-items-center pr-0 col-size">
+                                <Label for="exampleEmail" className='label-text'>Building</Label>
+                                <InputGroup>
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <MinusCircleOutlined onClick={decNum}  />
+                                        </span>
+                                    </InputGroupAddon>
+                                    <input type="text" class="form-control text-center" value={num} onChange={handleChange} />
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <PlusCircleOutlined onClick={incNum}  />
+                                        </span>
+                                    </InputGroupAddon>
+                                </InputGroup>
+                            </Col>
+                            <Col md={2} className="d-flex align-items-center pr-0 col-size">
+                                <Label for="exampleEmail" className='label-text'>Wings</Label>
+                                <InputGroup>
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <MinusCircleOutlined onClick={decNum}  />
+                                        </span>
+                                    </InputGroupAddon>
+                                    <input type="text" class="form-control text-center" value={num} onChange={handleChange} />
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <PlusCircleOutlined onClick={incNum}  />
+                                        </span>
+                                    </InputGroupAddon>
+                                </InputGroup>
+                            </Col>
+                            <Col md={2} className="d-flex align-items-center pr-0 col-size">
+                                <Label for="exampleEmail" className='label-text'>Floor</Label>
+                                <InputGroup>
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <MinusCircleOutlined onClick={decNum}  />
+                                        </span>
+                                    </InputGroupAddon>
+                                    <input type="text" class="form-control text-center" value={num} onChange={handleChange} />
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <PlusCircleOutlined onClick={incNum}  />
+                                        </span>
+                                    </InputGroupAddon>
+                                </InputGroup>
+                            </Col>
+                            <Col md={2} className="d-flex align-items-center pr-0 col-size">
+                            <Label for="exampleEmail" className='label-text'>Room</Label>
+                                <InputGroup>
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <MinusCircleOutlined onClick={decNum}  />
+                                        </span>
+                                    </InputGroupAddon>
+                                    <input type="text" class="form-control text-center" value={num} onChange={handleChange} />
+                                    <InputGroupAddon addonType="prepend">
+                                        <span className="input-group-text bg-white">
+                                            <PlusCircleOutlined onClick={incNum}  />
+                                        </span>
+                                    </InputGroupAddon>
+                                </InputGroup>
+                            </Col>
+                        </Row>
+                        <div className='mt-5 float-right'>
+                            <Button className='btn-conpany px-4'>Submit</Button>
+                        </div>
+                    </div>
+                </CardBody>
+            </Card>
         </React.Fragment>
     );
 };
 
-export default Tables;
+
+export default AddCompany;
